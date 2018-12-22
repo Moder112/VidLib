@@ -41,3 +41,13 @@ Vidlib.exe [misc arguments] [-archive <file>] -path <location> <Link/path to fil
 TODO
 ======
 probably gonna add some kind of auto downloader for updates to complete the youtube-dl ripoff checklist
+
+
+
+
+
+
+
+
+
+i have no idea why the hell is this marked as an html project, there's only one html file and it's really small, wtf github
