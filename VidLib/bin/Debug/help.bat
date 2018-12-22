@@ -1,0 +1,2 @@
+VidLib.exe -help
+pause

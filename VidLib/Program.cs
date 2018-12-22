@@ -63,6 +63,44 @@ namespace VidLib
 
 
             }
+            if (ScreenArguments(args, "-help"))
+            {
+                Metadata = true;
+                const int pad = 15;
+                //  Console.WriteLine("Tag");
+                Console.WriteLine("Usage:   \nVidlib.exe [misc arguments] [-archive <file>] -path <location>\n<Link/path to file with links> \n");
+                Console.WriteLine("Arguments:\n");
+                Console.Write(PadFormat("-HQ", pad));
+                Console.WriteLine("Downloads the 720p version of the video if possible");
+                Console.Write(PadFormat("-get-thumb", pad));
+                Console.WriteLine("Downloads the thumbnail");
+                Console.Write(PadFormat("-save-metadata", pad));
+                Console.WriteLine("Saves the json metadata of the video");
+                Console.Write(PadFormat("-no-video", pad));
+                Console.WriteLine("skips downloading the video file (useful for updating metadata)");
+                Console.Write(PadFormat("-path <file>", pad));
+                Console.WriteLine("A mandatory argument, followed by the path to the file,");
+                Console.Write(PadFormat(" ", pad));
+                Console.WriteLine("path takes special arguments to generate the file location"); 
+                Console.Write(PadFormat("   @[url]", pad+5));
+                Console.WriteLine("video id");
+                Console.Write(PadFormat("   @[file]", pad + 5));
+                Console.WriteLine("CDN server file id");
+                Console.Write(PadFormat("   @[title]", pad + 5));
+                Console.WriteLine("video title");
+                Console.Write(PadFormat("   @[category]", pad + 5));
+                Console.WriteLine("Video Category");
+                Console.Write(PadFormat("   @[uploaded_by]", pad + 5));
+                Console.WriteLine("Uploader");
+                Console.Write(PadFormat("   @[uploaded_on]", pad + 5));
+                Console.WriteLine("Upload date");
+                Console.Write(PadFormat("   @[ext]", pad + 5));
+                Console.WriteLine("Extension (MANDATORY)\n");
+                Console.Write(PadFormat("-archive <filename>", pad + 5));
+                Console.WriteLine("saves the downloaded video id to a file so that you don't download it again.");
+                Console.ReadLine();
+                return;
+            }
             if (ScreenArguments(args, "-save-metadata"))
             {
                 Metadata = true;
@@ -108,6 +146,8 @@ namespace VidLib
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("WARNING: Program needs path argument to work");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Run with -help to print syntax");
                 Console.ReadLine();
             }
             string link = args[args.Length-1];
@@ -136,7 +176,7 @@ namespace VidLib
                         {
                             WebClient client = new WebClient();
                             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
+                            client.DownloadFile(link, "channelraw.html");
                             string extractedID = Scanforid("channelraw.html");
                             if (File.Exists(extractedID)) File.Delete((extractedID));
                             s.MakeRequest(extractedID, page.ToString());
@@ -209,7 +249,7 @@ namespace VidLib
                                     {
                                         WebClient client = new WebClient();
                                         System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-                                     
+                                        client.DownloadFile(link, "channelraw.html");
                                         string extractedID = Scanforid("channelraw.html");
                                         if (File.Exists(extractedID)) File.Delete((extractedID));
                                         s.MakeRequest(extractedID, page.ToString());
@@ -297,6 +337,10 @@ namespace VidLib
                 }
             }
             return false;
+        }
+        static string PadFormat(string Input, int pad)
+        {
+            return Input.PadRight(pad);
         }
         static void Download(string link, string path, Vidlib s)
         {
