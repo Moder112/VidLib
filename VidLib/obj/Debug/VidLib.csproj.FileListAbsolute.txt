@@ -1,0 +1,5 @@
+c:\users\olek\documents\visual studio 2015\Projects\VidLib\VidLib\bin\Debug\VidLib.exe
+c:\users\olek\documents\visual studio 2015\Projects\VidLib\VidLib\bin\Debug\VidLib.pdb
+c:\users\olek\documents\visual studio 2015\Projects\VidLib\VidLib\obj\Debug\VidLib.exe
+c:\users\olek\documents\visual studio 2015\Projects\VidLib\VidLib\obj\Debug\VidLib.pdb
+C:\Users\olek\Documents\Visual Studio 2015\Projects\VidLib\VidLib\obj\Debug\VidLib.csprojResolveAssemblyReference.cache

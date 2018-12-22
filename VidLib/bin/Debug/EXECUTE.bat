@@ -1,0 +1,2 @@
+VidLib.exe -save-metadata -HQ -get-thumb -archive Archive.txt -path  "C:\Users\olek\Documents\Vidlii\@[uploaded_by]\@[url]\@[title]@[ext]" "C:\Users\olek\Documents\Visual Studio 2015\Projects\VidLib\VidLib\bin\Debug\Vidliilist.txt"
+pause
