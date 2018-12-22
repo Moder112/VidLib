@@ -1,6 +1,9 @@
 # VidLib
 A C# clone of youtube-dl designed to download VidLii videos and metadata
 
+A compiled version available here:
+https://github.com/Moder112/VidLib/releases/tag/VidLib
+
 I created it to resolve the issue of archiving siivagunner-type channels on vidlii.
 I might add compatibility for bitview or whatever it's called later.
 Anyway the program is a ripoff of youtube-dl and basically made clones of some commands that are useful for archival.
